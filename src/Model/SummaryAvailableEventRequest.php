@@ -29,4 +29,13 @@ class SummaryAvailableEventRequest implements EventRequestData
         $this->channelId = $callData['channel_id'] ?? null;
         $this->summary = $callData['summary'] ?? null;
     }
+
+    public static function fromArray(?array $data = []): ?SummaryAvailableEventRequest
+    {
+        if (is_null($data)) {
+            return null;
+        }
+
+        return new self($data);
+    }
 }

@@ -35,4 +35,13 @@ class AftercallEventRequest implements EventRequestData
         $this->tags = $callData['tags'] ?? null;
         $this->comments = $callData['comments'] ?? null;
     }
+
+    public static function fromArray(?array $data = []): ?AftercallEventRequest
+    {
+        if (is_null($data)) {
+            return null;
+        }
+
+        return new self($data);
+    }
 }

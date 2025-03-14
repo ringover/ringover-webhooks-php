@@ -41,4 +41,13 @@ class RecordAvailableEventRequestEvent  implements EventRequestData
         $this->privateRecordLink = $callData['private_record_link'] ?? null;
         $this->recordDurationInSeconds = $callData['record_duration'] ?? null;
     }
+
+    public static function fromArray(?array $data = []): ?RecordAvailableEventRequestEvent
+    {
+        if (is_null($data)) {
+            return null;
+        }
+
+        return new self($data);
+    }
 }

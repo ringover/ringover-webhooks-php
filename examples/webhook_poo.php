@@ -13,7 +13,7 @@ use RingoverSDK\Model\ContactSearchEventResponse;
 use RingoverSDK\Model\ContactSearchNumberEventResponse;
 use RingoverSDK\Service\ValidationWebhookEvent;
 use Slim\Factory\AppFactory;
-use RingoverSDK\Transformer\CallEventTransformer;
+use RingoverSDK\Transformer\EventRequestTransformer;
 use Slim\Middleware\BodyParsingMiddleware;
 
 require_once __DIR__ . '/vendor/autoload.php';
@@ -73,7 +73,7 @@ class MyCallEventAction extends CallEventAction
 {
     public function __construct()
     {
-        $callEventTransformer = new CallEventTransformer();
+        $callEventTransformer = new EventRequestTransformer();
         parent::__construct($callEventTransformer);
     }
 
@@ -88,7 +88,7 @@ class MyContactSearchEventAction extends ContactSearchEventAction
 {
     public function __construct()
     {
-        $callEventTransformer = new CallEventTransformer();
+        $callEventTransformer = new EventRequestTransformer();
         parent::__construct($callEventTransformer);
     }
 
@@ -117,7 +117,7 @@ class MyContactCallEventAction extends ContactEventAction
 {
     public function __construct()
     {
-        $callEventTransformer = new CallEventTransformer();
+        $callEventTransformer = new EventRequestTransformer();
         parent::__construct($callEventTransformer);
     }
 

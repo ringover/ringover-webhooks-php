@@ -29,4 +29,13 @@ class TranscriptionAvailableEventRequest implements EventRequestData
         $this->channelId = $callData['channel_id'] ?? null;
         $this->transcriptionLink = $callData['transcription_link'] ?? null;
     }
+
+    public static function fromArray(?array $data = []): ?TranscriptionAvailableEventRequest
+    {
+        if (is_null($data)) {
+            return null;
+        }
+
+        return new self($data);
+    }
 }

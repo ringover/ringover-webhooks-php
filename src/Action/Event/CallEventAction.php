@@ -7,15 +7,15 @@ use RingoverSDK\Action\Action;
 use RingoverSDK\Model\EventRequest;
 use InvalidArgumentException;
 use Psr\Http\Message\ResponseInterface;
-use RingoverSDK\Transformer\CallEventTransformer;
+use RingoverSDK\Transformer\EventRequestTransformer;
 
 abstract class CallEventAction extends Action
 {
-    private CallEventTransformer $transformer;
+    private EventRequestTransformer $transformer;
 
     protected EventRequest $eventRequestPayload;
 
-    public function __construct(CallEventTransformer $transformer)
+    public function __construct(EventRequestTransformer $transformer)
     {
         $this->transformer = $transformer;
     }

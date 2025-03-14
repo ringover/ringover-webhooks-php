@@ -10,11 +10,11 @@ use RingoverSDK\Model\ContactSearchEventResponse;
 use RingoverSDK\Model\ContactSearchNumberEventResponse;
 use RingoverSDK\Service\ValidationWebhookEvent;
 use Slim\Factory\AppFactory;
-use RingoverSDK\Transformer\CallEventTransformer;
+use RingoverSDK\Transformer\EventRequestTransformer;
 use Slim\Middleware\BodyParsingMiddleware;
 
-require __DIR__ . '/vendor/autoload.php';
-require __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 const JWT_SECRET = 'MY_SECRET';
 
@@ -45,7 +45,7 @@ $apiKeyValidationMiddleware = function (ServerRequestInterface $request, Request
 };
 
 $app->post('/call/event', function (ServerRequestInterface $request, ResponseInterface $response) {
-    $transformer = new CallEventTransformer();
+    $transformer = new EventRequestTransformer();
     $callEventPayload = $transformer->getEventRequestObject($request->getParsedBody());
     error_log(json_encode($callEventPayload, JSON_PRETTY_PRINT));
     /** OPERATION ON CALL EVENT */
@@ -54,7 +54,7 @@ $app->post('/call/event', function (ServerRequestInterface $request, ResponseInt
     ->add($jwtValidationMiddleware);
 
 $app->post('/aftercall/event', function (ServerRequestInterface $request, ResponseInterface $response) {
-    $transformer = new CallEventTransformer();
+    $transformer = new EventRequestTransformer();
     $aftercallEventPayload = $transformer->getEventRequestObject($request->getParsedBody());
     error_log(json_encode($aftercallEventPayload, JSON_PRETTY_PRINT));
     /** OPERATION ON AFTERCALL EVENT */
@@ -63,7 +63,7 @@ $app->post('/aftercall/event', function (ServerRequestInterface $request, Respon
     ->add($jwtValidationMiddleware);
 
 $app->post('/contact/search', function (ServerRequestInterface $request, ResponseInterface $response) {
-    $transformer = new CallEventTransformer();
+    $transformer = new EventRequestTransformer();
     $this->contactEventPaylaod = $transformer->getEventRequestObject($request->getParsedBody());
 
     /* GET CONTACT OPERATION */
@@ -90,7 +90,7 @@ $app->post('/contact/search', function (ServerRequestInterface $request, Respons
     ->add($apiKeyValidationMiddleware);
 
 $app->post('/contact/event', function (ServerRequestInterface $request, ResponseInterface $response) {
-    $transformer = new CallEventTransformer();
+    $transformer = new EventRequestTransformer();
     $this->contactEventPaylaod = $transformer->getEventRequestObject($request->getParsedBody());
 
     /* GET CONTACT OPERATION */

@@ -6,15 +6,15 @@ use RingoverSDK\Action\Action;
 use RingoverSDK\Model\EventRequest;
 use InvalidArgumentException;
 use Psr\Http\Message\ResponseInterface;
-use RingoverSDK\Transformer\CallEventTransformer;
+use RingoverSDK\Transformer\EventRequestTransformer;
 
 abstract class IvrResponseEventAction extends Action
 {
-    private CallEventTransformer $transformer;
+    private EventRequestTransformer $transformer;
 
     protected EventRequest $callWebhook;
 
-    public function __construct(CallEventTransformer $transformer)
+    public function __construct(EventRequestTransformer $transformer)
     {
         $this->transformer = $transformer;
     }
@@ -30,7 +30,7 @@ abstract class IvrResponseEventAction extends Action
             throw new InvalidArgumentException('Invalid JSON body');
         }
 
-        $this->callWebhook = $this->transformer->getCallObject($decodedBody);
+        $this->callWebhook = $this->transformer->getEventRequestObject($decodedBody);
         return $this->action();
     }
 

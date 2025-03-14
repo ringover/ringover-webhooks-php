@@ -7,15 +7,15 @@ use RingoverSDK\Model\EventRequest;
 use RingoverSDK\Model\ContactSearchEventResponse;
 use InvalidArgumentException;
 use Psr\Http\Message\ResponseInterface;
-use RingoverSDK\Transformer\CallEventTransformer;
+use RingoverSDK\Transformer\EventRequestTransformer;
 
 abstract class ContactSearchEventAction extends Action
 {
-    private CallEventTransformer $transformer;
+    private EventRequestTransformer $transformer;
 
     protected EventRequest $callWebhook;
 
-    public function __construct(CallEventTransformer $transformer)
+    public function __construct(EventRequestTransformer $transformer)
     {
         $this->transformer = $transformer;
     }

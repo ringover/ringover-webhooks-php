@@ -29,4 +29,13 @@ class TagsUpdatedEventRequest implements EventRequestData
         $this->channelId = $callData['channel_id'] ?? null;
         $this->tags = $callData['tags'] ?? null;
     }
+
+    public static function fromArray(?array $data = []): ?TagsUpdatedEventRequest
+    {
+        if (is_null($data)) {
+            return null;
+        }
+
+        return new self($data);
+    }
 }

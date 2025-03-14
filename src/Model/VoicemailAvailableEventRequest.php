@@ -41,4 +41,13 @@ class VoicemailAvailableEventRequest implements EventRequestData
         $this->privateVoicemailLink = $callData['private_voicemail_link'] ?? null;
         $this->voicemailDurationInSeconds = $callData['voicemail_duration'] ?? null;
     }
+
+    public static function fromArray(?array $data = []): ?VoicemailAvailableEventRequest
+    {
+        if (is_null($data)) {
+            return null;
+        }
+
+        return new self($data);
+    }
 }

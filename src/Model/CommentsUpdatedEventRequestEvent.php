@@ -29,4 +29,13 @@ class CommentsUpdatedEventRequestEvent implements EventRequestData
         $this->channelId = $callData['channel_id'] ?? null;
         $this->comments = $callData['comments'] ?? null;
     }
+
+    public static function fromArray(?array $data = []): ?CommentsUpdatedEventRequestEvent
+    {
+        if (is_null($data)) {
+            return null;
+        }
+
+        return new self($data);
+    }
 }
