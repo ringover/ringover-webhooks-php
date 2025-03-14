@@ -14,7 +14,6 @@ use RingoverSDK\Transformer\EventRequestTransformer;
 use Slim\Middleware\BodyParsingMiddleware;
 
 require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/../vendor/autoload.php';
 
 const JWT_SECRET = 'MY_SECRET';
 

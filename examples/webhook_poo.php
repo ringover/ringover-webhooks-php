@@ -17,7 +17,6 @@ use RingoverSDK\Transformer\EventRequestTransformer;
 use Slim\Middleware\BodyParsingMiddleware;
 
 require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/../vendor/autoload.php';
 
 const CALL_EVENT_JWT_SECRET = 'MY_CALL_EVENT_JWT_SECRET';
 const CONTACT_SEARCH_EVENT_API_KEY = 'MY_CONTACT_SEARCH_EVENT_API_KEY';
