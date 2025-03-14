@@ -1,12 +1,13 @@
 {
   "name": "ringover/ringover-sdk-php",
-  "description": "description",
+  "description": "This project provides a complete SDK to handle Ringover events.",
   "minimum-stability": "stable",
-  "license": "proprietary",
+  "license": "BSD-2-Clause",
+  "version": "1.0",
   "authors": [
     {
       "name": "Remi Moinas",
-      "email": "email@example.com"
+      "email": "rmoinas@ringover.com"
     }
   ],
   "require": {

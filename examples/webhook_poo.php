@@ -16,12 +16,12 @@ use Slim\Factory\AppFactory;
 use RingoverSDK\Transformer\CallEventTransformer;
 use Slim\Middleware\BodyParsingMiddleware;
 
-require __DIR__ . '/vendor/autoload.php';
-require __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
-const CALL_EVENT_JWT_SECRET = 'eee03440df3a12f143e28019fd512a58fc959abb';
-const CONTACT_SEARCH_EVENT_API_KEY = 'a3c2755a80d783bf30c1a839514a93513e411a9b';
-const CONTACT_EVENT_JWT_SECRET = '1d08998fbf92e86337b0cc5cd8c5968c5bf4dd5e';
+const CALL_EVENT_JWT_SECRET = 'MY_CALL_EVENT_JWT_SECRET';
+const CONTACT_SEARCH_EVENT_API_KEY = 'MY_CONTACT_SEARCH_EVENT_API_KEY';
+const CONTACT_EVENT_JWT_SECRET = 'MY_CONTACT_EVENT_JWT_SECRET';
 
 $app = AppFactory::create();
 
