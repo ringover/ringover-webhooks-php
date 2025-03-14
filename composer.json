@@ -1,0 +1,22 @@
+{
+  "name": "ringover/ringover-sdk-php",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Remi Moinas",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "psr/http-message": "2.*",
+    "ext-json": "*",
+    "firebase/php-jwt": "^6.11"
+  },
+  "autoload": {
+    "psr-4": {
+      "RingoverSDK\\": "src/"
+    }
+  }
+}

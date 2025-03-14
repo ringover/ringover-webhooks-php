@@ -1,0 +1,16 @@
+{
+  "name": "ringover/ringover-example-sdk-php",
+  "description": "Usage example",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Remi Moinas",
+      "email": "email@example.com"
+    }
+  ],
+  "require": {
+    "slim/slim": "4.*",
+    "slim/psr7": "^1.7"
+  }
+}
